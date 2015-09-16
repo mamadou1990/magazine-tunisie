@@ -41,9 +41,9 @@ class CategorieRepositoryEloquent extends BaseRepository implements CategorieRep
 
 
 
-    public function addCategorie($Categorie)
+    public function addCategorie($categorie)
     {
-        $this->create($Categorie);
+        return $categorie->save();
     }
 
 

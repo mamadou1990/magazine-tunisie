@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Entities\Categorie;
+use Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\CategorieRepository;
 
@@ -25,9 +24,16 @@ public function categories()
 
 
 
-public function addCategorie($Categorie)
+public function addCategorie()
     {
-        $this->repository->addCategorie($Categorie);
+
+        $categorie=new Categorie();
+        $categorie->title=Request::input('title');
+        $categorie->section_id=Request::input('section_id');
+
+        //var_dump($section);
+
+        var_dump($this->repository->addCategorie($categorie));
     }
 
 

@@ -70,7 +70,7 @@ class SectionController extends Controller
 {
 
        // $this->repository->deleteSections($ids);
-        var_dump('llnlx');
+var_dump('llnl');
 }
 
     public function getSectionsWithCategories()

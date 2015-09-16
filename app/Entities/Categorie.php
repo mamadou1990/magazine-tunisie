@@ -12,7 +12,7 @@ class Categorie extends Model implements Transformable
 
     protected $fillable = ['title'];
 
-    protected $table = 'Articles';
+    protected $table = 'Categories';
 
 
     public function article()

@@ -8,7 +8,9 @@
 
 
     "paths": {
-        "/public/article": {
+
+
+        "/magazine-tunisie/public/article": {
             "get": {
                 "tags": [
                     "article"
@@ -19,32 +21,7 @@
                         "description": "A list of articles"
                     }
                 }
-            }
-        },
-        "/public/article/{articleId}": {
-            "get": {
-                "tags": [
-                    "article"
-                ],
-                "summary": "Find article by ID",
-                "parameters": [
-                    {
-                        "name": "articleId",
-                        "in": "path",
-                        "description": "ID of article that needs to be fetched",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "A list of articles"
-                    }
-                }
-            }
-        },
-        "/public/article": {
+            },
             "post": {
                 "tags": [
                     "article"
@@ -88,8 +65,36 @@
         },
 
 
+        "/magazine-tunisie/public/article/{articleId}": {
+            "get": {
+                "tags": [
+                    "article"
+                ],
+                "summary": "Find article by ID",
+                "parameters": [
+                    {
+                        "name": "articleId",
+                        "in": "path",
+                        "description": "ID of article that needs to be fetched",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of articles"
+                    }
+                }
+            }
+        },
 
-        "/magTunisie/public/section": {
+
+
+
+
+
+        "/magazine-tunisie/public/section": {
             "post": {
                 "tags": [
                     "section"
@@ -131,16 +136,7 @@
                         ]
                     }
                 ]
-            }
-        },
-
-
-
-
-
-
-
-        "/magTunisie/public/sections": {
+            },
             "get": {
                 "tags": [
                     "section"
@@ -154,11 +150,54 @@
 
                     }
                 }
+            },
+            "delete": {
+                "tags": [
+                    "section"
+                ],
+                "summary": "delete section by ID",
+
+
+                "parameters": [
+                    {
+                        "name": "ids",
+                        "in": "body",
+                        "description": "IDs of section that needs to be fetched",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+
+
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response"
+
+                    },
+                    "default": {
+                        "description": "error payload",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    }
+                }
             }
         },
 
 
-        "/magTunisie/public/section/{id}": {
+
+
+
+
+
+
+
+
+        "/magazine-tunisie/public/section/{id}": {
             "get": {
                 "tags": [
                     "section"
@@ -200,14 +239,28 @@
 
 
 
-        "/magTunisie/public/section": {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        "/magazine-tunisie/public/categorie": {
             "post": {
                 "tags": [
-                    "section"
+                    "categorie"
                 ],
-                "summary": "Add a new sssection to the store",
+                "summary": "Add a new categorie to the store",
                 "description": "",
-                "operationId": "Section",
+                "operationId": "Categorie",
                 "consumes": [
                     "application/json",
                     "application/xml"
@@ -219,12 +272,12 @@
                 "parameters": [
                     {
                         "in": "body",
-                        "name": "section",
-                        "description": "section object that needs to be added to the store",
+                        "name": "categorie",
+                        "description": "categorie object that needs to be added to the store",
                         "required": true,
                         "schema": {
                             "type": "object",
-                            "$ref": "#/definitions/Section"
+                            "$ref": "#/definitions/Categorie"
                         }
                     }
                 ],
@@ -233,7 +286,7 @@
                         "description": "pet response",
                         "schema": {
                             "type": "object",
-                            "$ref": "#/definitions/Section"
+                            "$ref": "#/definitions/Categorie"
                         }
                     },
                     "405": {
@@ -248,23 +301,33 @@
                         ]
                     }
                 ]
-            }
-        },
+            },
+            "get": {
+                "tags": [
+                    "categorie"
+                ],
+                "summary": "list categories",
+                "responses": {
+
+                    "200": {
+                        "description": "A list of categories"
 
 
-        "/magTunisie/public/section": {
+                    }
+                }
+            },
             "delete": {
                 "tags": [
-                    "section"
+                    "categorie"
                 ],
-                "summary": "delete section by ID",
+                "summary": "delete categorie by ID",
 
 
                 "parameters": [
                     {
                         "name": "ids",
                         "in": "body",
-                        "description": "IDs of section that needs to be fetched",
+                        "description": "IDs of categorie that needs to be fetched",
                         "required": true,
                         "type": "array",
                         "items": {
@@ -279,6 +342,43 @@
                     "200": {
                         "description": "pet response"
 
+                    },
+                    "default": {
+                        "description": "error payload",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorModel"
+                        }
+                    }
+                }
+            }
+        },
+
+        "/magazine-tunisie/public/categorie/{id}": {
+            "get": {
+                "tags": [
+                    "categorie"
+                ],
+                "summary": "Find categorie by ID",
+
+
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of categorie that needs to be fetched",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "schema": {
+
+                            "$ref": "#/definitions/categorie"
+
+                        }
                     },
                     "default": {
                         "description": "error payload",
@@ -323,6 +423,35 @@
 
             }
         },
+
+
+
+
+        "Categorie": {
+            "type": "object",
+            "required": [
+                "id",
+                "title",
+                "section_id"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "section_id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+
+            }
+        },
+
+
+
         "Article": {
             "type": "object",
             "required": [
