@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 use App\Repositories\MediaRepository;
 
-use App\Http\Requests;
+use Request;
 use App\Http\Controllers\Controller;
+use App\Entities\Media;
+
 
 class MediaController extends Controller
 {
@@ -29,9 +30,15 @@ class MediaController extends Controller
     }
 
 
-    public function addMedia($Media)
+    public function addMedia()
     {
-        $this->repository->createMedia($Media);
+        $media=new Media();
+        $media->url=Request::input('url');
+        $media->article_id=Request::input('article_id');
+
+        //var_dump($media);
+
+        var_dump($this->repository->createMedia($media));
     }
 
 

@@ -39,9 +39,9 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
 
     }
 
-    public function createMedia($Media)
+    public function createMedia($media)
     {
-        $this->create($Media);
+        return $media->save();
     }
 
     public function getMedia($id)

@@ -33,7 +33,7 @@ class SectionController extends Controller
     public function addSection()
     {
 
-       $section=new Section;
+       $section=new Section();
         $section->title=Request::input('title');
 
        //var_dump($section);

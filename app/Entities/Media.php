@@ -11,9 +11,9 @@ class Media extends Model implements Transformable
     use TransformableTrait;
 
 
-    protected $table = 'medias';
+    protected $table = 'Medias';
 
-    protected $fillable = ['url'];
+    protected $fillable = ['url','article_id'];
 
 
     public function section()

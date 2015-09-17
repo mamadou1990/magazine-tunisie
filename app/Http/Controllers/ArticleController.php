@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Repositories\ArticleRepository;
 
-use App\Http\Requests;
+
 use App\Http\Controllers\Controller;
 use Swagger\Annotations as SWG;
 
@@ -32,9 +32,14 @@ class ArticleController extends Controller
     }
 
 
-    public function addArticle($Article)
+    public function addArticle()
     {
-        $this->repository->createArticle($Article);
+        $article=new Section;
+        $article->title=Request::input('title');
+
+        //var_dump($section);
+
+        var_dump($this->repository->addSections($section));
     }
 
 

@@ -32,6 +32,9 @@ Route::get('article/{id}', [
     'as' => 'getArticleById', 'uses' => 'ArticleController@getArticleById'
 ]);
 
+Route::post('article', [
+    'as' => 'addArticle', 'uses' => 'ArticleController@addArticle'
+]);
 
 
 
@@ -73,3 +76,19 @@ Route::delete('section', [
     'as' => 'deleteSection', 'uses' => 'SectionController@deleteSections'
 ]);
 
+
+
+
+
+Route::get('media', [
+    'as' => 'media', 'uses' => 'MediaController@medias'
+]);
+
+
+Route::get('media/{id}', [
+    'as' => 'getmediaById', 'uses' => 'MediaController@media'
+]);
+
+Route::post('media', [
+    'as' => 'addMedia', 'uses' => 'MediaController@addMedia'
+]);
