@@ -53,9 +53,9 @@ class SectionRepositoryEloquent extends BaseRepository implements SectionReposit
 
     }
 
-    public function updateSections($Section, $Section_id)
+    public function updateSection($section, $section_id)
     {
-        $this->update($Section, $Section_id);
+        $this->update($section, $section_id);
 
     }
 
