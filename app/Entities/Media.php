@@ -16,10 +16,10 @@ class Media extends Model implements Transformable
     protected $fillable = ['url','article_id'];
 
 
-    public function section()
-    {
-        return $this->hasOne('Article');
-    }
+    public function article()
+{
+    return $this->hasOne('Article');
+}
 
     public function user()
     {

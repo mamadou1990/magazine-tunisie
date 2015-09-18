@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Section;
+use App\Entities\Categorie;
 use App\Repositories\SectionRepository;
 use Request;
 use App\Http\Controllers\Controller;
@@ -76,7 +77,7 @@ var_dump('llnl');
     public function getSectionsWithCategories()
 {
    return $this->repository->getSectionsWithCategories();
-
+//var_dump('lkhkh');
 
     }
 

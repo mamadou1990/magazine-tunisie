@@ -73,9 +73,9 @@ class CategorieRepositoryEloquent extends BaseRepository implements CategorieRep
         return $Categories;
     }
 
-    public function getCategoriesBySection($Sec_id){
+    public function getCategoriesBySection($section_id){
 
-        $Categories = $this->findByField('Section_id',$Sec_id);
+        $Categories = $this->findByField('Section_id',$section_id);
 
         return $Categories;
     }

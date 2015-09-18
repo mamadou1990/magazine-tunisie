@@ -17,7 +17,7 @@ class Section extends Model implements Transformable
 
     public function categorie()
     {
-        return $this->hasMany('Categorie');
+        return $this->hasMany('App\Entities\Categorie');
     }
 
 

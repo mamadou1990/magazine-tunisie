@@ -6,6 +6,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\ArticleRepository;
 use App\Entities\Article;
+use App\Entities\Media;
 
 /**
  * Class ArticleRepositoryEloquent
@@ -41,17 +42,22 @@ class ArticleRepositoryEloquent extends BaseRepository implements ArticleReposit
     return $articles;
 }
 
-    public function createArticle($Article)
+    public function createArticle($article)
     {
-         $this->create($Article);
+         $article->save();
     }
 
 
     public function getArticle($id)
     {
-        $Article = $this->findByField('id',$id);
 
-        return $Article;
+        return Article::with('Media')->where('id',$id)->get();
+
+    }
+
+    public function articlesWithMedias(){
+
+        return Article::with('Media')->get();
     }
 
     public function updateArticles($Article, $id)

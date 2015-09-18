@@ -73,9 +73,9 @@ public function addCategorie()
 
     }
 
-    public function getCategoriesBySection($Sec_id){
+    public function getCategoriesBySection($section_id){
 
-        return $this->repository->getCategoriesBySection($Sec_id);
+        return $this->repository->getCategoriesBySection($section_id);
     }
 
 }

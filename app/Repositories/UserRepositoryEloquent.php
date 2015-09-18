@@ -38,21 +38,21 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return $users;
     }
 
-    public function addUser($User)
+    public function addUser($user)
     {
-        $this->create($User);
+        return $user->save();
     }
 
-    public function getUser($id)
+        public function getUser($id)
     {
         $User = $this->findByField('id',$id);
 
         return $User;
     }
 
-    public function updateUser($User, $User_id)
+        public function updateUser($User, $User_id)
     {
-         $this->update($User, $User_id );
+        $this->update($User, $User_id );
 
     }
 

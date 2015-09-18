@@ -47,6 +47,10 @@ Route::get('categorie/{id}', [
     'as' => 'categorie', 'uses' => 'CategorieController@categorie'
 ]);
 
+Route::get('categories/{sectio_id}', [
+    'as' => 'categorie', 'uses' => 'CategorieController@getCategoriesBySection'
+]);
+
 Route::post('categorie', [
     'as' => 'addcategorie', 'uses' => 'CategorieController@addCategorie'
 ]);
@@ -76,6 +80,11 @@ Route::delete('section', [
     'as' => 'deleteSection', 'uses' => 'SectionController@deleteSections'
 ]);
 
+Route::get('sections', [
+    'as' => 'Sectionscat', 'uses' => 'SectionController@getSectionsWithCategories'
+]);
+
+
 
 
 
@@ -91,4 +100,46 @@ Route::get('media/{id}', [
 
 Route::post('media', [
     'as' => 'addMedia', 'uses' => 'MediaController@addMedia'
+]);
+
+
+
+Route::get('user', [
+    'as' => 'user', 'uses' => 'UserController@users'
+]);
+
+
+Route::get('user/{id}', [
+    'as' => 'getuserById', 'uses' => 'UserController@user'
+]);
+
+Route::post('user', [
+    'as' => 'addUser', 'uses' => 'UserController@addUser'
+]);
+
+
+
+
+
+Route::get('article', [
+    'as' => 'article', 'uses' => 'ArticleController@articles'
+]);
+
+Route::get('article/{id}', [
+    'as' => 'article', 'uses' => 'ArticleController@article'
+]);
+
+Route::get('categories/{sectio_id}', [
+    'as' => 'categorie', 'uses' => 'CategorieController@getCategoriesBySection'
+]);
+
+Route::post('article', [
+    'as' => 'addarticle', 'uses' => 'articleController@addArticle'
+]);
+Route::delete('categorie', [
+    'as' => 'deleteCategorie', 'uses' => 'SectionController@deleteCategories'
+]);
+
+Route::get('articles', [
+    'as' => 'articleswithMedias', 'uses' => 'ArticleController@getArticlesWithMedias'
 ]);

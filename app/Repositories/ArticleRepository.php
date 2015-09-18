@@ -17,6 +17,7 @@ interface ArticleRepository extends RepositoryInterface
     public function deleteArticle($id);
     public function getActiclesByCategorie($cat_id);
     public function getActiclesBySection($sec_id);
+    public  function articlesWithMedias();
 
 
 

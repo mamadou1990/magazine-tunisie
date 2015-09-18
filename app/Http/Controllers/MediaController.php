@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Repositories\MediaRepository;
-
 use Request;
+
 use App\Http\Controllers\Controller;
 use App\Entities\Media;
 

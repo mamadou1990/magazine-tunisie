@@ -6,6 +6,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\SectionRepository;
 use App\Entities\Section;
+use App\Entities\Categorie;
 
 /**
  * Class SectionRepositoryEloquent

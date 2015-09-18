@@ -31,5 +31,9 @@ class Article extends Model implements Transformable
         return $this->hasOne('User');
     }
 
+    public function media()
+    {
+        return $this->hasMany('App\Entities\Media');
+    }
 
 }

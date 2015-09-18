@@ -9,7 +9,8 @@ use App\Repositories\ArticleRepository;
 
 use App\Http\Controllers\Controller;
 use Swagger\Annotations as SWG;
-
+use App\Entities\Article;
+use App\Entities\Media;
 
 
 class ArticleController extends Controller
@@ -34,12 +35,16 @@ class ArticleController extends Controller
 
     public function addArticle()
     {
-        $article=new Section;
+        $article=new Article();
         $article->title=Request::input('title');
+        $article->text=Request::input('text');
+        $article->user_id=Request::input('user_id');
+        $article->section_id=Request::input('section_id');
+        $article->categorie_id=Request::input('categorie_id');
 
-        //var_dump($section);
+        //var_dump($article);
 
-        var_dump($this->repository->addSections($section));
+        var_dump($this->repository->createArticle($article));
     }
 
 
@@ -62,7 +67,7 @@ class ArticleController extends Controller
      *   ),
      * )
      */
-    public function getArticleById($articleId)
+    public function article($articleId)
     {
         return $this->repository->getArticle($articleId);
     }
@@ -71,15 +76,20 @@ class ArticleController extends Controller
 
 
     public function updateArticles($Article, $id)
-{
+    {
         $this->repository->Updatearticles($Article, $id);
-}
+    }
 
 
 
     public function deleteArticle($id)
     {
         $this->repository->deleteArticle($id);
+    }
+
+    public function getArticlesWithMedias()
+    {
+        return $this->repository->articlesWithMedias();
     }
 
 
